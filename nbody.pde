@@ -5,13 +5,13 @@
 int bh = 100;
 int bw = 100;
 int n = 60;
-float a = 0.0000000002*10;
+float a = 0.0000000002*10; //transfer coefficient
 float[] pos_x = new float[n];
 float[] pos_y = new float[n];
 float[] vel_x = new float[n];
 float[] vel_y = new float[n];
 float[] mass = new float[n];
-float k = 0.5;
+float k = 0.5; //collision radius
 
 
  
@@ -71,6 +71,7 @@ void draw()
     	 pos_y[i] = pos_y[i] + vel_y[i]/20;
     	 vel_x[i] = vel_x[i] + dv_x;
     	 vel_y[i] = vel_y[i] + dv_y;
+	 \\collisions
     	 if(pos_x[i]-pos_x[j] < mass[i]/2 & pos_x[i]-pos_x[j]>0){
    	       if(pos_y[i]-pos_y[j] < mass[i]/2 & pos_y[i]-pos_y[j]>0){
       	           mass[i]=mass[i]+mass[j];

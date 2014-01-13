@@ -3,13 +3,13 @@
 
 // Ben Horowitz (horowitz.ben@gmail.com)
 
-int bh = 300;
-int bw = 300;
-int[][] temp = new int[bh][bw];
-int[][] temp1 = new int[bh][bw];
-int mint=0;
+int bh = 300; //# of boxes in height direction
+int bw = 300; //# of boxes in width direction
+int[][] temp = new int[bh][bw]; // updated array
+int[][] temp1 = new int[bh][bw]; // old array
+int mint=0; 
 int maxt=100;
-float k = 0.5;
+float k = 0.5; // "heat transfer coefficient"-like thing
 
 
  
@@ -30,29 +30,24 @@ int t;
 
 void intcond()
 {
-  
-  
  float h;
   h= height/bh;
   float w;
   w= width/bw;
-  
  for(int i=0; i < bw; i+=1)
   {
       for(int j=0; j < bh; j+=1)
-      {
-       
-        
-       if(i==0 || i==bw-1 || j==0 ||  j==bh-1)
-      {
-        temp[i][j]=10;
-        temp1[i][j]=10;
-      }
-      else
-      {
-       temp[i][j] = int(random(256));
-       temp1[i][j]= temp[i][j];
-      }
+      { 
+       	if(i==0 || i==bw-1 || j==0 ||  j==bh-1)
+     	 {	
+		temp[i][j]=10;
+        	temp1[i][j]=10;
+      		}
+      	else
+      	{
+		temp[i][j] = int(random(256));
+       		temp1[i][j]= temp[i][j];
+      	}
       }
   }
 }
@@ -96,7 +91,7 @@ void draw()
   {
     for(int j=0; j*h < height; j+=1)
     {
-      temp1[i][j]=temp[i][j];
+      temp1[i][j]=temp[i][j]; //updating array
     }
   }
 } 
